@@ -1,0 +1,350 @@
+:root {
+    --green-color: #859a62;
+    --Hot-pink-color: #e44a78;
+    --light-yellow-color: #faeb92;
+    --cream-color: #f8efd9;
+    --navy-blue-color: #4b5979;
+    --slate-color: #36454F;
+    --yellow-color: #f9b716;
+    --light-pink-color: #f69bb6;
+    --purple-color: #eab1ed;
+    --light-blue: #afd1ef;
+    --white-color: #ffffff;
+    --grey-color: #d9d9d9;
+    --black-color: #000000;
+    --red-color: #FF0000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lora", serif;
+}
+
+body {
+    color: var(--black-color);
+    padding-top: 95px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: var(--cream-color);
+    z-index: 99;
+}
+
+.back-btn {
+    background: var(--white-color);
+    border: 1px solid var(--black-color);
+    border-radius: 6px;
+    padding: 6px 14px;
+    text-decoration: none;
+    color: var(--black-color);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+header h1 {
+    font-family: "Sour Gummy", sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    color: var(--black-color);
+}
+
+.cart-section {
+    background-color: var(--green-color);
+    color: var(--white-color);
+    padding: 60px 15%;
+    transition: min-height 0.3s ease;
+}
+
+.cart-section.is-empty {
+    min-height: calc(100vh - 82px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty-message {
+    color: #54633c;
+    font-size: 32px;
+    font-family: "Inter", sans-serif;
+}
+
+.filled-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.cart-item {
+    display: flex;
+    gap: 35px;
+    margin-bottom: 30px;
+    align-items: flex-start;
+}
+
+.item-img,
+.item-img-placeholder {
+    width: 180px;
+    height: 180px;
+    background-color: var(--white-color);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.item-header h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.item-price {
+    font-size: 14px;
+    margin-bottom: 14px;
+}
+
+.delete-btn {
+    background: var(--white-color);
+    color: var(--red-color);
+    border: 1px solid var(--black-color);
+    border-radius: 6px;
+    padding: 5px 14px;
+    cursor: pointer;
+    font-family: "Lora", serif;
+    font-size: 14px;
+}
+
+.control-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.control-label {
+    width: 85px;
+}
+
+.quantity-control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--white-color);
+    color: var(--black-color);
+    border: 1px solid var(--black-color);
+    border-radius: 6px;
+    height: 30px;
+    min-width: 96px;
+    padding: 0 6px;
+}
+
+.qty-btn {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    width: 24px;
+    height: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black-color)
+}
+
+.qty-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.qty-value {
+    font-family: "Inter", sans serif;
+    font-size: 13px;
+    color: var(--black-color);
+    min-width: 24px;
+    text-align: center;
+}
+
+.control-row select {
+    height: 30px;
+    padding: 0px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--black-color);
+    background-color: var(--white-color);
+    font-family: "Lora", serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.totals-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.totals-box {
+    width: 220px;
+    font-size: 14px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.total-final {
+    background: var(--white-color);
+    color: var(--black-color);
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin-top: 8px;
+}
+
+.order-form-section {
+    padding: 50px 15%;
+}
+
+.order-form-section h2 {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: var(--black-color);
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.form-group label,
+.payment-label span {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: var(--black-color);
+}
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.sub-label {
+    font-size: 11px;
+    color: var(--slate-color);
+    margin-top: 4px;
+    display: block;
+}
+
+.order-form-section input[type="text"],
+.order-form-section input[type="email"],
+.order-form-section input[type="tel"],
+.order-form-section select,
+.order-form-section textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--black-color);
+    border-radius: 6px;
+    background-color: var(--white-color);
+    color: var(--black-color);
+    font-family: "Lora", serif;
+    font-size: 14px;
+}
+
+.payment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.payment-header label {
+    margin-bottom: 0;
+}
+
+.card-logos {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-logos img {
+    height: 20px;
+    width: auto;
+    object-fit: contain;
+}
+
+.payment-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.payment-logo {
+    height: 24px;
+    width: 24px;
+    object-fit: contain;
+}
+
+.payment-option span {
+    color: var(--black-color);
+    font-size: 15px;
+}
+
+.payment-option input[type="radio"] {
+    cursor: pointer;
+    accent-color: var(--black-color);
+}
+
+.payment-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.submit-btn {
+    background-color: var(--Hot-pink-color);
+    color: var(--cream-color);
+    border: none;
+    padding: 12px 50px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit-container {
+    text-align: center;
+    margin-top: 40px;
+}
