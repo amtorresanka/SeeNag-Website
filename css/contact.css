@@ -1,20 +1,28 @@
 :root {
   --color-banner-pink: #F69BB6;
   --color-slate-navy: #4B5979;
-  --color-faq-heading: #3B4766;
-  --color-berry-pink: #C42A5B;
-  --color-faq-berry: #9E1244;
+  --color-faq-heading: #4B5979;
+  --color-berry-pink: #E44A78;
   --color-powder-blue: #AFD1EF;
   --color-star-yellow: #F9B716;
-  --color-focus: #1a2233;
-  --color-placeholder: #667085;
-  --color-error: #b31d3f;
+  --color-focus: #000000;
+  --color-placeholder: #4B5979;
+  --color-error: #E44A78;
+  --color-olive: #859A62;
+  --color-butter: #FAEB92;
+  --color-cream: #F8EFD9;
+  --color-lavender: #EAB1ED;
+  --color-white: #FFFFFF;
+  --color-gray: #D9D9D9;
+  --color-black: #000000;
+  --bs-dark-rgb: 0, 0, 0;
+  --bs-border-color: #D9D9D9;
 
 }
 
 body {
   font-family: 'Lora', serif;
-  color: #222222;
+  color: #000000;
   background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
   margin: 0;
@@ -121,7 +129,7 @@ header {
 
 .nav-link-custom {
   font-family: 'Lora', serif;
-  color: #141414;
+  color: #000000;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -136,7 +144,7 @@ header {
 }
 
 .nav-pill {
-  background: #141414;
+  background: #000000;
   color: #fff;
   border-radius: 10px;
   padding: 0 18px;
@@ -186,7 +194,7 @@ header {
 .required-legend {
   font-family: 'Lora', serif;
   font-size: 1rem;
-  color: #555555;
+  color: var(--color-slate-navy);
   margin-bottom: 1.25rem;
 
 }
@@ -197,7 +205,7 @@ header {
   padding: 10px 16px;
   font-family: 'Lora', serif;
   font-size: 1rem;
-  color: #2b3345;
+  color: #000000;
   width: 100%;
   background-color: #ffffff;
   outline: none;
@@ -209,7 +217,7 @@ header {
 
 .form-control-custom:focus {
   border-color: var(--color-berry-pink);
-  box-shadow: 0 0 0 3px rgba(196, 42, 91, 0.18);
+  box-shadow: 0 0 0 3px #F69BB6;
 
 }
 
@@ -221,7 +229,7 @@ header {
 
 .form-control-custom[aria-invalid="true"] {
   border-color: var(--color-error);
-  box-shadow: 0 0 0 3px rgba(179, 29, 63, 0.15);
+  box-shadow: 0 0 0 3px #F69BB6;
 
 }
 
@@ -230,7 +238,7 @@ header {
   font-family: 'Lora', serif;
   font-size: 1rem;
   font-weight: 600;
-  color: var(--color-error);
+  color: #000000;
   margin-top: 6px;
   align-items: center;
   gap: 6px;
@@ -244,12 +252,13 @@ header {
 
 .field-error-icon {
   font-weight: bold;
+  color: var(--color-error);
 
 }
 
 .btn-submit-berry {
   background-color: var(--color-berry-pink);
-  color: #ffffff;
+  color: #000000;
   font-family: 'Sour Gummy', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
@@ -264,7 +273,7 @@ header {
 }
 
 .btn-submit-berry:hover {
-  background-color: #a31e48;
+  background-color: var(--color-slate-navy);
   color: #ffffff;
 
 }
@@ -284,13 +293,13 @@ header {
 }
 
 .form-status.success {
-  color: #176534;
+  color: #000000;
   font-weight: 600;
 
 }
 
 .form-status.error {
-  color: var(--color-error);
+  color: #000000;
   font-weight: 600;
   
 }
@@ -303,7 +312,7 @@ header {
 .reach-us-link {
   font-family: 'Lora', serif;
   font-size: 1rem;
-  color: #111111;
+  color: #000000;
   text-decoration: underline;
   display: inline-flex;
   align-items: center;
@@ -313,7 +322,7 @@ header {
 }
 
 .reach-us-link:hover {
-  color: var(--color-berry-pink);
+  color: var(--color-slate-navy);
 
 }
 
@@ -329,7 +338,7 @@ header {
 }
 
 .faq-subtitle {
-  color: #2b3345;
+  color: #000000;
   font-size: 1.05rem;
 
 }
@@ -345,7 +354,7 @@ header {
 .order-card-body {
   font-size: 1rem;
   line-height: 1.6;
-  color: #222222;
+  color: #000000;
 
 }
 
@@ -406,7 +415,7 @@ header {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-faq-berry);
+  color: #000000;
   font-size: 13px;
   line-height: 1;
   margin-top: 6px;
@@ -417,7 +426,7 @@ header {
 
 .faq-toggle-button[aria-expanded="false"] .faq-arrow {
   transform: rotate(180deg);
-  color: var(--color-faq-heading);
+  color: #000000;
 
 }
 
@@ -425,21 +434,21 @@ header {
   font-family: 'Sour Gummy', sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--color-faq-berry);
+  color: #000000;
   line-height: 1.35;
   transition: color 0.2s ease;
 
 }
 
 .faq-toggle-button[aria-expanded="false"] .faq-question-text {
-  color: var(--color-faq-heading);
+  color: #000000;
 
 }
 
 .faq-answer-body {
   font-family: 'Lora', serif;
   font-size: 1rem;
-  color: #222222;
+  color: #000000;
   line-height: 1.6;
   padding-left: 25px;
   padding-top: 8px;
@@ -447,7 +456,7 @@ header {
 }
 
 .faq-answer-body a {
-  color: #1a2233;
+  color: #000000;
   text-decoration: underline;
 
 }
@@ -547,4 +556,9 @@ footer {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+[data-purpose="info-block-email"] svg,
+[data-purpose="info-block-phone"] svg {
+  stroke: #000000;
 }
