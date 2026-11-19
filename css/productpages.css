@@ -44,19 +44,33 @@ p {
   }
 }
 
+header {
+  line-height: 1.5;
+}
+
 .nav-link-custom {
   font-family: 'Lora', serif;
-  color: #141414;
+  color: #000000;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 6px;
 }
+
 .nav-link-custom:hover {
   text-decoration: underline;
 }
+
 .nav-pill {
-  background: #141414;
+  background: #000000;
   color: #fff;
   border-radius: 10px;
-  padding: 0px 18px;
+  padding: 0 18px;
+}
+
+.nav-pill:hover {
+  color: #fff;
 }
 
 /*PRODUCT PAGE */
