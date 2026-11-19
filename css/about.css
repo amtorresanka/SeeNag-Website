@@ -8,14 +8,18 @@
   --brand-rose: #F69BB6;
   --brand-sky: #AFD1EF;
   --brand-gray: #D9D9D9;
-  --card-yellow-top: #F5DF65;
-  --brand-berry-dark: #A31846;
+  --card-yellow-top: #F9B716;
+  --brand-lavender: #EAB1ED;
+  --brand-white: #FFFFFF;
+  --brand-black: #000000;
+  --bs-dark-rgb: 0, 0, 0;
+  --bs-border-color: #D9D9D9;
 
 }
 
 body {
   font-family: 'Lora', serif;
-  color: #111111;
+  color: #000000;
   background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
   font-size: 1rem;
@@ -25,7 +29,7 @@ body {
 
 ::selection {
   background-color: var(--brand-butter);
-  color: #111111;
+  color: #000000;
 
 }
 
@@ -33,7 +37,7 @@ body {
   position: absolute;
   top: -60px;
   left: 16px;
-  background: #111111;
+  background: #000000;
   color: #ffffff;
   padding: 12px 18px;
   z-index: 9999;
@@ -59,7 +63,7 @@ button:focus-visible,
 .dot-btn-touch-area:focus-visible,
 .order-cta-btn:focus-visible,
 .footer-link:focus-visible {
-  outline: 3px solid #1a2233 !important;
+  outline: 3px solid #000000 !important;
   outline-offset: 3px !important;
 
 }
@@ -113,7 +117,7 @@ header {
 
 .nav-link-custom {
   font-family: 'Lora', serif;
-  color: #141414;
+  color: #000000;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -128,7 +132,7 @@ header {
 }
 
 .nav-pill {
-  background: #141414;
+  background: #000000;
   color: #fff;
   border-radius: 10px;
   padding: 0 18px;
@@ -145,7 +149,7 @@ header {
   width: 100%;
   height: 32.5rem;
   overflow: hidden;
-  background-color: #1a1a1a;
+  background-color: #000000;
 
 }
 
@@ -297,7 +301,7 @@ header {
 .card-value-desc {
   font-size: 1rem;
   line-height: 1.7;
-  color: #222222;
+  color: #000000;
   margin-bottom: 0;
 
 }
@@ -328,7 +332,7 @@ header {
   min-height: 20.625rem;
   height: auto;
   background: #FFFFFF;
-  border: 1.5px solid #111111;
+  border: 1.5px solid #000000;
   border-radius: 6px;
   padding: 36px 40px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
@@ -373,14 +377,14 @@ header {
   font-family: 'Sour Gummy', cursive, sans-serif;
   font-size: 1.45rem;
   font-weight: 700;
-  color: #5F7340;
+  color: var(--brand-olive);
   margin-bottom: 12px;
 
 }
 
 .carousel-card-desc {
   font-size: 1rem;
-  color: #111111;
+  color: #000000;
   line-height: 1.65;
 
 }
@@ -402,7 +406,7 @@ header {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  border: 1.5px solid #888888;
+  border: 1.5px solid var(--brand-navy);
   padding: 0;
   background-color: #ffffff;
   transition: all 0.25s ease;
@@ -413,20 +417,20 @@ header {
 
 .dot-btn-touch-area.active .dot-btn {
   background-color: var(--brand-butter);
-  border: 1.5px solid #111111;
+  border: 1.5px solid #000000;
 
 }
 
 .order-cta-btn {
-  background-color: var(--brand-berry-dark);
-  color: #ffffff !important;
+  background-color: var(--brand-berry);
+  color: #000000 !important;
   font-family: 'Sour Gummy', cursive, sans-serif;
   font-size: 1.0625rem;
   font-weight: 700;
   padding: 14px 38px;
   min-height: 48px;
   border-radius: 8px;
-  border: 2px solid #781033;
+  border: 2px solid #000000;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   text-decoration: none;
   display: inline-flex;
@@ -437,7 +441,7 @@ header {
 }
 
 .order-cta-btn:hover {
-  background-color: #8b133b;
+  background-color: var(--brand-navy);
   color: #ffffff !important;
 
 }
