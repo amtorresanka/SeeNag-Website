@@ -4,51 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Condensed:ital,wght@0,400;0,500&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="shop.css">
     <title>Seenag | Shop</title>
 </head>
 <body class="min-vh-100 d-flex flex-column">
-    <header class="site-header sticky-top d-flex align-items-center justify-content-between px-3 px-md-5 bg-white">
-        <a class="brand d-inline-flex align-items-center gap-1 text-reset text-decoration-none text-nowrap" href="#shop" aria-label="Seenag home">
-            <img class="header-logo object-fit-contain" src="images/seenag-logo.png" alt="">
-            <span>Seenag</span>
-        </a>
-        <nav class="main-nav d-flex align-items-center gap-1" aria-label="Main navigation">
-            <a class="px-2 py-1 text-reset text-decoration-none" href="#shop">Home</a>
-            <a class="active px-2 py-1 text-white text-decoration-none" href="#shop">Shop</a>
-            <a class="px-2 py-1 text-reset text-decoration-none" href="#about">About</a>
-            <a class="px-2 py-1 text-reset text-decoration-none" href="#contact">Contact</a>
-        </nav>
-        <button class="cart-button position-relative d-flex justify-content-center align-items-center p-0 border-0 bg-transparent" type="button" aria-label="Shopping cart">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.5a2 2 0 0 0 2-1.6L21 8H6"/>
-                <circle cx="10" cy="20" r="1"/>
-                <circle cx="18" cy="20" r="1"/>
-            </svg>
-            <span class="cart-count position-absolute top-0 d-none rounded-pill text-center" aria-live="polite">0</span>
-        </button>
-    </header>
+  <header>
+<nav class="navbar border-bottom px-4 py-3" aria-label="Main navigation">
+  <div class="container-fluid">
+    <span class="navbar-brand brand fs-4">
+      <img src="images/seenag-logo.png" alt="Seenag logo" style="height:42px; vertical-align:-13px; margin-right:6px;">
+        Seenag
+    </span>
+
+    <div class="nav-links d-flex gap-3 align-items-center">
+      <a href="index.html" class="nav-link-custom">Home</a>
+      <a href="shop.html" class="nav-link-custom nav-pill">Shop</a>
+      <a href="about.html" class="nav-link-custom">About</a>
+      <a href="contact.html" class="nav-link-custom">Contact</a>
+    </div>
+
+    <a href="checkout.html" class="text-dark text-decoration-none" aria-label="View cart">
+  <span class="material-symbols-outlined">shopping_cart</span>
+  </a>
+  </div>
+</nav>
+  </header>
 
     <main class="d-flex flex-column flex-grow-1">
         <section class="catalog position-relative d-flex align-items-center overflow-hidden flex-grow-1 px-3 px-md-5 py-4 py-md-5" id="shop" aria-label="Shop tees">
+    <div class="big-seenag" aria-hidden="true">SEENAG</div>
+    <div class="container product-grid position-relative z-1">
             <div class="container product-grid position-relative z-1">
                 <div class="row row-cols-3 g-3 g-md-4">
                 <article class="product-card col">
-                    <a class="d-block border bg-white" href="#dogoodwork" aria-label="View Don't Be Late tee">
+                    <a class="d-block border border-dark bg-white" href="dontbelate.html" aria-label="View Don't Be Late tee">
                         <img class="img-fluid d-block object-fit-cover" src="images/dontbelate-front.png" alt="Pink Don't Be Late tee">
                     </a>
                     <h2 class="mt-1 mb-1 fw-bold">Don't Be Late</h2>
                     <p class="mb-0">₱499</p>
                 </article>
                 <article class="product-card col">
-                    <a class="d-block border bg-white" href="#dogoodwork" aria-label="View Everyday Comfort tee">
+                    <a class="d-block border border-dark bg-white" href="everydaycomfort.html" aria-label="View Everyday Comfort tee">
                         <img class="img-fluid d-block object-fit-cover" src="images/everydaycomfort-front.png" alt="White Everyday Comfort tee">
                     </a>
                     <h2 class="mt-1 mb-1 fw-bold">Everyday Comfort</h2>
                     <p class="mb-0">₱499</p>
                 </article>
                 <article class="product-card col">
-                    <a class="d-block border bg-white" href="#dogoodwork" aria-label="View Do Good Work tee">
+                    <a class="d-block border border-dark bg-white" href="dogoodwork.html" aria-label="View Do Good Work tee">
                         <img class="img-fluid d-block object-fit-cover" src="images/dogoodwork-front.png" alt="Black Do Good Work tee">
                     </a>
                     <h2 class="mt-1 mb-1 fw-bold">Do Good Work</h2>
@@ -58,176 +63,22 @@
             </div>
         </section>
 
-        <section class="product-page flex-grow-1" id="dogoodwork" aria-label="Do Good Work tee details">
-            <div class="product-top position-relative overflow-hidden">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center g-3">
-                    <div class="product-description col-4">
-                        <small class="d-inline-block mb-1">Seenag</small>
-                        <h1>Do Good<br>Work Tee</h1>
-                        <p>A simple statement for people who believe good work speaks for itself.</p>
-                        <div class="product-thumbnails d-flex gap-1" aria-label="Product views">
-                            <button class="p-0 bg-white" type="button" aria-label="Show front view" aria-pressed="true" data-image="images/dogoodwork-front.png" data-alt="Do Good Work Tee, front view">
-                                <img class="w-100 h-100 object-fit-cover" src="images/dogoodwork-front.png" alt="">
-                            </button>
-                            <button class="p-0 bg-white" type="button" aria-label="Show side detail view" aria-pressed="false" data-image="images/dogoodwork-detail.png" data-alt="Do Good Work Tee, side detail view">
-                                <img class="w-100 h-100 object-fit-cover" src="images/dogoodwork-detail.png" alt="">
-                            </button>
-                            <button class="p-0 bg-white" type="button" aria-label="Show back view" aria-pressed="false" data-image="images/dogoodwork-back.png" data-alt="Do Good Work Tee, back view">
-                                <img class="w-100 h-100 object-fit-cover" src="images/dogoodwork-back.png" alt="">
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-4">
-                        <img class="main-product-image img-fluid w-100 d-block object-fit-contain bg-white" src="images/dogoodwork-front.png" alt="Do Good Work Tee">
-                    </div>
-
-                    <div class="product-options col-4">
-                        <h2 class="product-price fw-normal">₱499</h2>
-                        <hr>
-                        <label class="form-label mb-1">Size | <span class="selected-size-label">M</span></label>
-                        <div class="size-buttons d-flex mb-2" role="group" aria-label="Choose a size">
-                            <button class="flex-fill" type="button" aria-pressed="false">XS</button>
-                            <button class="flex-fill" type="button" aria-pressed="false">S</button>
-                            <button class="selected flex-fill text-white" type="button" aria-pressed="true">M</button>
-                            <button class="flex-fill" type="button" aria-pressed="false">L</button>
-                            <button class="flex-fill" type="button" aria-pressed="false">XL</button>
-                        </div>
-                        <label class="form-label mb-1">Quantity | <span class="quantity-label">1</span></label>
-                        <div class="quantity d-flex align-items-center mb-2 text-center">
-                            <button class="decrease-quantity flex-fill border-0" type="button" aria-label="Decrease quantity">−</button>
-                            <output class="flex-fill" aria-live="polite">1</output>
-                            <button class="increase-quantity flex-fill border-0" type="button" aria-label="Increase quantity">+</button>
-                        </div>
-                        <button class="add-cart btn w-100 rounded-0 border-0" type="button">ADD TO CART</button>
-                        <p class="cart-message mt-1 mb-0" aria-live="polite"></p>
-                    </div>
-                    </div>
-                </div>
-            </div>
-
-            <section class="recommendations position-relative overflow-hidden px-2 px-md-4 pt-4 pt-md-5" aria-label="Recommended tees">
-                <div class="recommendation-band position-absolute start-0 bottom-0 w-100"></div>
-                <div class="container recommendation-layout position-relative z-1">
-                    <div class="row align-items-start g-2 g-md-3">
-                    <div class="col-4 d-flex justify-content-center">
-                    <article class="recommendation-card">
-                        <img class="img-fluid w-100 d-block bg-white object-fit-cover" src="images/dontbelate-front.png" alt="Don't Be Late tee">
-                        <h3 class="fw-normal">Don't Be Late Tee</h3>
-                        <p>₱499</p>
-                    </article>
-                    </div>
-                    <div class="recommendation-title col-4 text-center fw-bold text-nowrap">You May Also Like</div>
-                    <div class="col-4 d-flex justify-content-center">
-                    <article class="recommendation-card">
-                        <img class="img-fluid w-100 d-block bg-white object-fit-cover" src="images/everydaycomfort-front.png" alt="Everyday Comfort tee">
-                        <h3 class="fw-normal">Everyday Comfort Tee</h3>
-                        <p>₱499</p>
-                    </article>
-                    </div>
-                    </div>
-                </div>
-            </section>
-        </section>
     </main>
 
-    <footer class="site-footer position-relative z-1 bg-white px-4 py-2" id="contact">
-        <div class="container-fluid">
-        <div class="row align-items-center">
-        <a class="brand col-4 d-inline-flex align-items-center gap-1 text-reset text-decoration-none text-nowrap" href="#shop">
-            <img class="header-logo object-fit-contain" src="images/seenag-logo.png" alt="">
-            <span>Seenag</span>
-        </a>
-        <a class="footer-link col-4 text-center text-decoration-none text-dark" href="#privacy">Privacy</a>
-        <a class="footer-link col-4 text-end text-decoration-none text-dark" href="#terms">Terms</a>
-        <div class="social-links col-12 d-flex gap-2 align-items-center" aria-label="Social media">
-            <a class="social-facebook d-inline-flex align-items-center justify-content-center text-secondary text-decoration-none bg-white rounded-circle" href="#facebook" aria-label="Facebook" title="Facebook">
-                <svg class="d-block w-100 h-100" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill="currentColor" d="M13.5 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.8v8z"/>
-                </svg>
-            </a>
-            <a class="social-instagram d-inline-flex align-items-center justify-content-center text-secondary text-decoration-none bg-white rounded-circle" href="#instagram" aria-label="Instagram" title="Instagram">
-                <svg class="d-block w-100 h-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <rect x="3" y="3" width="18" height="18" rx="5"/>
-                    <circle cx="12" cy="12" r="4"/>
-                    <circle cx="17.5" cy="6.8" r="1" fill="currentColor" stroke="none"/>
-                </svg>
-            </a>
-            <a class="social-youtube d-inline-flex align-items-center justify-content-center text-secondary text-decoration-none bg-white rounded-circle" href="#youtube" aria-label="YouTube" title="YouTube">
-                <svg class="d-block w-100 h-100" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill="currentColor" d="M23 7.1a3 3 0 0 0-2.1-2.2C19 4.4 12 4.4 12 4.4s-7 0-8.9.5A3 3 0 0 0 1 7.1a31 31 0 0 0-.5 4.9A31 31 0 0 0 1 17a3 3 0 0 0 2.1 2.2c1.9.5 8.9.5 8.9.5s7 0 8.9-.5A3 3 0 0 0 23 17a31 31 0 0 0 .5-5 31 31 0 0 0-.5-4.9Z"/>
-                    <path fill="#fff" d="m10 15.5 6-3.5-6-3.5z"/>
-                </svg>
-            </a>
-            <a class="social-linkedin d-inline-flex align-items-center justify-content-center text-secondary text-decoration-none bg-white rounded-circle" href="#linkedin" aria-label="LinkedIn" title="LinkedIn">
-                <svg class="d-block w-100 h-100" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill="currentColor" d="M20.5 3h-17A1.5 1.5 0 0 0 2 4.5v15A1.5 1.5 0 0 0 3.5 21h17a1.5 1.5 0 0 0 1.5-1.5v-15A1.5 1.5 0 0 0 20.5 3ZM8 18H5V9h3ZM6.5 7.8a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4ZM19 18h-3v-4.4c0-1.1 0-2.5-1.5-2.5S13 12.3 13 13.5V18h-3V9h2.9v1.2h.1a3.2 3.2 0 0 1 2.8-1.5c3 0 3.5 2 3.5 4.5Z"/>
-                </svg>
-            </a>
+  <footer class="py-4 border-top">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-start flex-wrap gap-3">
+        <span class="brand fs-5">
+           <img src="images/seenag-logo.png" alt="" style="height:30px; vertical-align:-8px; margin-right:6px;">
+           Seenag
+        </span>
+        <div class="d-flex gap-5">
+          <a href="privacy.html" class="text-dark text-decoration-none">Privacy</a>
+          <a href="terms.html" class="text-dark text-decoration-none">Terms</a>
         </div>
-        </div>
-        </div>
-    </footer>
+      </div>
+    </div>
+  </footer>
 
-    <script>
-        const sizeButtons = document.querySelectorAll(".size-buttons button");
-        const selectedSizeLabel = document.querySelector(".selected-size-label");
-        const quantityOutput = document.querySelector(".quantity output");
-        const quantityLabel = document.querySelector(".quantity-label");
-        const cartCount = document.querySelector(".cart-count");
-        const cartMessage = document.querySelector(".cart-message");
-        const mainProductImage = document.querySelector(".main-product-image");
-        const productThumbnails = document.querySelectorAll(".product-thumbnails button");
-        let cartQuantity = 0;
-
-        productThumbnails.forEach((thumbnail) => {
-            thumbnail.addEventListener("click", () => {
-                mainProductImage.src = thumbnail.dataset.image;
-                mainProductImage.alt = thumbnail.dataset.alt;
-                productThumbnails.forEach((option) => {
-                    option.setAttribute("aria-pressed", String(option === thumbnail));
-                });
-            });
-        });
-
-        sizeButtons.forEach((button) => {
-            button.addEventListener("click", () => {
-                sizeButtons.forEach((option) => {
-                    option.classList.remove("selected");
-                    option.classList.remove("text-white");
-                    option.setAttribute("aria-pressed", "false");
-                });
-                button.classList.add("selected");
-                button.classList.add("text-white");
-                button.setAttribute("aria-pressed", "true");
-                selectedSizeLabel.textContent = button.textContent;
-            });
-        });
-
-
-        function setQuantity(quantity) {
-            quantityOutput.value = quantity;
-            quantityLabel.textContent = quantity;
-        }
-
-        document.querySelector(".decrease-quantity").addEventListener("click", () => {
-            setQuantity(Math.max(1, Number(quantityOutput.value) - 1));
-        });
-
-        document.querySelector(".increase-quantity").addEventListener("click", () => {
-            setQuantity(Number(quantityOutput.value) + 1);
-        });
-
-        // Add to cart functionality, comment out if not needed
-
-        document.querySelector(".add-cart").addEventListener("click", () => {
-            const quantity = Number(quantityOutput.value);
-            cartQuantity += quantity;
-            cartCount.textContent = cartQuantity;
-            cartCount.classList.remove("d-none");
-            cartMessage.textContent = `${quantity} tee${quantity === 1 ? "" : "s"} added to cart`;
-        });
-    </script>
 </body>
 </html>
