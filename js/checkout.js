@@ -1,7 +1,3 @@
-
-checkout.js
-
-100%
 let cart = JSON.parse(localStorage.getItem('shopCart')) || [];
 
 const cartSection= document.getElementById('cartSection');
@@ -144,4 +140,3 @@ if (checkoutForm) {
 }
 
 renderCheckout();
-Displaying checkout.js.
