@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="css/home.css">
 </head>
 
-<body>
+<body class="min-vh-100 d-flex flex-column">
 
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
@@ -58,64 +58,133 @@
     
     </header>
 
-    <main id="main-content" tabindex="-1">
+    <main id="main-content" class="flex-grow-1" tabindex="-1">
 
         <section class="hero-section" data-purpose="hero-banner">
-            <img alt="Woman laying comfortably" class="hero-img" src="images/homepageheadingsection.png"/>
-            <div class="hero-overlay"></div>
-            <h1 class="hero-title">Home</h1>
-            <p class="text-start">Don't dim your light!</p>
-            <p>With Seenag, you can stay comfortable and express yourself creatively!</p>
-          </section>
+            <img class="hero-img" src="images/homepageheadingsection.png" alt="Smiling woman lying back on a couch in a white Seenag tee">
 
+            <div class="hero-overlay" aria-hidden="true"></div>
 
-    <h2 class="text-center">Check our tees</h2>
+            <h1 class="visually-hidden">Seenag | Home</h1>
 
-        <div class="container">
-        <div class="row">
+            <div class="hero-content">
 
-            <div class="col-md-4 tee">
-                    <img src="images/dontbelate-front.png" alt="Pink Don't Be Late tee worn by a model">
-                    <p class="tee-title">Don't Be Late Tee</p>
-                    <p class="tee-price">₱499</p>
+                <div>
+                    <p class="hero-title">Don't dim your light!</p>
+                    <p class="hero-subtitle">With Seenag, you can stay comfortable and express yourself creatively!</p>
                 </div>
 
-                <div class="col-md-4 tee">
-                    <img src="images/everydaycomfort-front.png" alt="White Everyday Comfort tee worn by a model">
-                    <p class="tee-title">Everyday Comfort Tee</p>
-                    <p class="tee-price">₱499</p>
-                </div>
-
-                <div class="col-md-4 tee">
-                    <img src="images/dogoodwork-front.png" alt="Black Do Good Work tee worn by a model">
-                    <p class="tee-title">Do Good Work Tee</p>
-                    <p class="tee-price">₱499</p>
+                <a href="shop.html" class="btn-browse">Browse the Collection</a>
             </div>
 
-        </div>
-    </div>
+        </section>
 
-    <h2>What is SeeNag?</h2>
-        <p>Comfortable versatile everyday wear</p>
-        <p>Celebrates individuality, creativity, and self-expression</p>
-        <p>Playful, quirky, and practical clothing</p>
+        <section class="tees-section" aria-labelledby="tees-title">
+            <div class="container">
 
-    <h2>What our customers say</h2>
-        <p>Great Service</p>
-        <p>5 Star Reviews</p>
-        <p>Quality Shirts</p>
+                <h2 id="tees-title" class="section-title">Check our tees</h2>
 
-    <h2>Frequently Asked Questions</h2>
-        <h3>1. Do you cover shipping costs for the purchases?</h3>
-            <p>No, we do not. Shipping will be shouldered by the buyer.</p>
+                <div class="row">
 
-        <h3>2. I ordered the wrong size for my shirt. Can I exchange it for a different size?</h3>
-            <p>Yes! Please do send us an email at orders@examplewebsite142.com regarding the details before sending back the item to us.</p>
+                    <div class="col-md-4 tee">
 
-        <h3>3. The product I received is damaged. Can I apply for a refund or have my item replaced?</h3>
-            <p>We are so sorry to hear that. Please contact us at Seenag@gmail.com to discuss whether you would like to have the product refunded or replaced. The shipping fee for having the item replaced will be shouldered by us, Seenag.</p>
+                        <a class="d-block text-decoration-none" href="dontbelate.html" aria-labelledby="dontbelate-tee-title">
+                            <img src="images/dontbelate-front.png" alt="Pink Don't Be Late tee worn by a model">
+                            <p id="dontbelate-tee-title" class="tee-title">Don't Be Late Tee</p>
+                        </a>
+                        <p class="tee-price">₱499</p>
 
-        
+                    </div>
+
+                    <div class="col-md-4 tee">
+
+                        <a class="d-block text-decoration-none" href="everydaycomfort.html" aria-labelledby="everydaycomfort-tee-title">
+                            <img src="images/everydaycomfort-front.png" alt="White Everyday Comfort tee worn by a model">
+                            <p id="everydaycomfort-tee-title" class="tee-title">Everyday Comfort Tee</p>
+                        </a>
+                        <p class="tee-price">₱499</p>
+
+                    </div>
+
+                    <div class="col-md-4 tee">
+
+                        <a class="d-block text-decoration-none" href="dogoodwork.html" aria-labelledby="dogoodwork-tee-title">
+                            <img src="images/dogoodwork-front.png" alt="Black Do Good Work tee worn by a model">
+                            <p id="dogoodwork-tee-title" class="tee-title">Do Good Work Tee</p>
+                        </a>
+                        <p class="tee-price">₱499</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="about-section" aria-labelledby="about-title">
+
+            <h2 id="about-title" class="section-title">What is Seenag?</h2>
+
+            <ul class="bubbles" role="list">
+                <li class="bubble bubble-left">Comfortable versatile everyday wear</li>
+                <li class="bubble bubble-right">Celebrates individuality, creativity, and self-expression</li>
+                <li class="bubble bubble-left bubble-indent">Playful, quirky, and practical clothing</li>
+            </ul>
+
+        </section>
+
+
+        <section class="reviews-section" aria-labelledby="reviews-title">
+
+            <div class="container">
+                <h2 id="reviews-title" class="section-title">What our customers say</h2>
+                <ul class="row reviews" role="list">
+                    <li class="col-md-4">
+                        <span class="material-symbols-outlined review-icon" aria-hidden="true">thumb_up</span>
+                        <p>Great Service</p>
+                    </li>
+
+                    <li class="col-md-4">
+                        <span class="material-symbols-outlined review-icon" aria-hidden="true">star</span>
+                        <p>5 Star Reviews</p>
+                    </li>
+
+                    <li class="col-md-4">
+                        <span class="material-symbols-outlined review-icon" aria-hidden="true">apparel</span>
+                        <p>Quality Shirts</p>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section class="faq-section" aria-labelledby="faq-title">
+            <h2 id="faq-title" class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <ol class="faq-inner">
+                    <li>
+                        <h3>Do you cover shipping costs for the purchases?</h3>
+                        <p>No, we do not. Shipping will be shouldered by the buyer.</p>
+                    </li>
+
+                    <li>
+                        <h3>I ordered the wrong size for my shirt. Can I exchange it for a different size?</h3>
+                        <p>Yes! Please do send us an email at orders@examplewebsite142.com regarding the details before sending back the item to us.</p>
+                    </li>
+
+                    <li>
+                        <h3>The product I received is damaged. Can I apply for a refund or have my item replaced?</h3>
+                        <p>We are so sorry to hear that. Please contact us at hello@examplewebsite142.com to discuss whether you would like to have the product refunded or replaced. The shipping fee for having the item replaced will be shouldered by us, Seenag.</p>
+                    </li>
+
+                </ol>
+                
+            </div>
+        </section>
 
     </main>
 
@@ -128,8 +197,8 @@
 
             </a>
 
-            <a class="footer-link text-decoration-none text-dark" href="privacy.html">Privacy</a>
-            <a class="footer-link text-decoration-none text-dark" href="terms.html">Terms</a>
+            <a class="footer-link text-decoration-none text-dark" href="privacyTerms.html#privacy">Privacy</a>
+            <a class="footer-link text-decoration-none text-dark" href="privacyTerms.html#terms">Terms</a>
 
         </div>
 

@@ -15,7 +15,6 @@ body {
   font-family: 'Lora', serif;
   color: #111111;
   background-color: #ffffff;
-  -webkit-font-smoothing: antialiased;
   font-size: 1rem;
   line-height: 1.75;
 }
@@ -49,8 +48,7 @@ body {
 a:focus-visible,
 button:focus-visible,
 [tabindex="0"]:focus-visible,
-.nav-link-custom:focus-visible,
-.footer-link:focus-visible {
+.nav-link-custom:focus-visible {
   outline: 3px solid #1a2233 !important;
   outline-offset: 3px !important;
 }
@@ -74,7 +72,7 @@ header {
 }
 
 .material-symbols-outlined {
-  font-size: 35px; /* cart size */
+  font-size: 35px;
 }
 
 .navbar .container-fluid {
@@ -119,97 +117,10 @@ header {
   color: #fff;
 }
 
-/* HOME: HERO */
-.hero-section {
-  position: relative;
-  height: 400px;
-  overflow: hidden;
-}
-
-.hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.35); /* darkens the photo so text is readable */
-}
-
-.hero-content {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 0 4rem;
-}
-
-.hero-title,
-.hero-content p {
-  color: #ffffff;
-  margin: 0;
-}
-
-/* HOME: TEES */
-.tees-section {
-  background-color: var(--brand-cream);
-  padding: 2rem 0 4rem;
-}
-
-.tees-section h2 {
-  font-family: 'Sour Gummy', cursive, sans-serif;
-  color: var(--brand-navy);
-  font-size: 3rem;
-  margin: 0 0 2rem;
-}
-
-.tees-section p {
-  font-family: 'Lora', serif;
-  color: var(--brand-navy);
-  margin: 0;
-}
-
-.tee img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: 1px solid #333;
-  margin-bottom: 1rem;
-}
-
-.tee-title {
-  font-weight: 700; /* bold title */
-  font-size: 1.25rem;
-}
-
-.tee-price {
-  font-weight: 400; /* regular price */
-}
-
-/* Temporary test content (remove when the real home page is built) */
-.test-section {
-  padding: 120px 0;
-  background-color: var(--brand-cream);
-}
-
-.test-section h1 {
-  font-family: 'Sour Gummy', cursive, sans-serif;
-  font-size: 2.375rem;
-  font-weight: 700;
-  color: var(--brand-navy);
-}
-
 /* FOOTER */
-footer {
-  line-height: 1.5;
-}
-
 .site-footer {
+  background-color: #fff;
+  line-height: 1.5;
   min-height: 117px;
   padding: 16px 0;
 }
@@ -221,6 +132,9 @@ footer {
 }
 
 .footer-brand {
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -232,12 +146,19 @@ footer {
   justify-self: start;
 }
 
+.footer-brand span {
+  font-family: inherit;
+}
+
 .footer-logo {
+  object-fit: contain;
   width: 22px;
   height: 22px;
 }
 
 .footer-link {
+  color: #212529;
+  text-decoration: none;
   font-family: 'Lora', serif;
   font-size: 1rem;
   line-height: 22px;
@@ -245,6 +166,11 @@ footer {
   align-items: center;
   min-height: 44px;
   justify-self: start;
+}
+
+.site-footer a:focus-visible {
+  outline: 3px solid #1a2233;
+  outline-offset: 3px;
 }
 
 @media (max-width: 575px) {
@@ -259,6 +185,270 @@ footer {
   }
   .footer-link {
     margin-left: 24px;
+  }
+}
+
+/* SHARED SECTION HEADING */
+.section-title {
+  font-family: 'Sour Gummy', cursive, sans-serif;
+  font-weight: 600;
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  color: var(--brand-navy);
+  text-align: center;
+  margin: 0 0 2rem;
+}
+
+/* HERO */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  background-color: #fffcf6;
+}
+
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Light overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 252, 246, 0.8);
+}
+
+.hero-content {
+  position: relative; 
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 5rem 4rem 3rem;
+}
+
+.hero-title {
+  font-family: 'Sour Gummy', cursive, sans-serif;
+  font-weight: 600;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  color: var(--brand-navy);
+  margin: 0 0 1rem;
+}
+
+.hero-subtitle {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--brand-navy);
+  margin: 0;
+}
+
+.btn-browse {
+  display: inline-block;
+  width: min(100%, 18rem);
+  min-height: 44px;
+  padding: 0.9rem 2.5rem;
+  background-color: var(--brand-navy);
+  color: #ffffff;
+  font-family: 'Lora', serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.btn-browse:hover {
+  background-color: #3a4660;
+  color: #ffffff;
+}
+
+/* TEES */
+.tees-section {
+  background-color: var(--brand-cream);
+  padding: 3rem 0 4rem;
+}
+
+.tee img {
+  width: 100%;
+  background-color: #fff;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  border: 1px solid #333;
+  margin-bottom: 1rem;
+}
+
+.tee-title {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  color: var(--brand-navy);
+  margin: 0;
+}
+
+.tee-price {
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  color: var(--brand-navy);
+  margin: 0;
+}
+
+/* WHAT IS SEENAG - speech bubbles*/
+.about-section {
+  background-color: #ffffff;
+  padding: 3rem 0 5rem;
+}
+
+.bubbles {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  max-width: 82rem;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 3.5vw, 3rem);
+}
+
+.bubble {
+  position: relative;
+  max-width: calc(100% - var(--bubble-indent, 0rem));
+  width: fit-content;
+  padding: .6em 1.1em;
+  background-color: var(--brand-butter);
+  color: var(--brand-navy);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2.05vw, 1.75rem);
+  line-height: 1.4;
+  border-radius: 2rem;
+}
+
+/* little speech-bubble tail */
+.bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  width: 22px;
+  height: 16px;
+  background-color: var(--brand-butter);
+}
+
+.bubble-left {
+  align-self: flex-start;
+}
+
+.bubble-left::after {
+  left: -4px;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.bubble-right {
+  align-self: flex-end;
+}
+
+.bubble-right::after {
+  right: -4px;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+.bubble-indent {
+  --bubble-indent: clamp(1rem, 5vw, 5rem);
+  margin-left: var(--bubble-indent);
+}
+
+/* REVIEWS */
+.reviews-section {
+  background-color: var(--brand-cream);
+  padding: 3rem 0 4rem;
+}
+
+.reviews {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.review-icon {
+  font-size: 56px; /* overrides the 35px cart size */
+  color: var(--brand-navy);
+  line-height: 1;
+}
+
+.reviews p {
+  margin: 0.5rem 0 0;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--brand-navy);
+}
+
+/* FAQ */
+.faq-section {
+  background-color: #fff;
+}
+
+.faq-section > .section-title {
+  padding: clamp(1.5rem, 3vw, 2.25rem) 1rem .25rem;
+}
+
+.faq-list {
+  background-color: var(--brand-cream);
+  padding-block: clamp(1.75rem, 3vw, 2.25rem) clamp(3rem, 6.25vw, 5rem);
+}
+
+.faq-inner {
+  display: grid;
+  gap: clamp(1.75rem, 3.5vw, 2.75rem);
+  width: calc(100% - 2 * clamp(1.25rem, 7.3vw, 5.75rem));
+  max-width: 67rem;
+  margin: 0 auto;
+  padding-left: 1.75rem;
+  color: var(--brand-navy);
+}
+
+.faq-inner li::marker,
+.faq-inner h3 {
+  font-size: clamp(1.125rem, 1.6vw, 1.25rem);
+  font-weight: 700;
+}
+
+.faq-inner h3 {
+  line-height: 1.4;
+  margin: 0 0 .75rem;
+}
+
+.faq-inner p {
+  margin: 0;
+  padding-left: clamp(0rem, 1.6vw, 1.25rem);
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+/* small screens */
+@media (max-width: 767px) {
+  .hero-content {
+    padding: 3rem 1.5rem 2rem;
+    gap: 2rem;
+  }
+
+  .btn-browse {
+    width: 100%;
+  }
+
+  .tee {
+    margin-bottom: 1rem;
+  }
+
+  .reviews li {
+    margin-bottom: 1.5rem;
   }
 }
 
