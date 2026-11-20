@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check Out</title>
-    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="css/checkout.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Condensed&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
     <header>
         <a href="index.html" id="BackBtn" class="back-btn">← Back</a>
         <h1>Check Out</h1>
-        <div id="cart-icon">
-            <img src="Images/Shopping Cart.svg" alt="Shopping Cart" class="cart-icon">
-        </div>
+			<div id="cart-icon">
+			<span class="material-symbols-outlined" aria-label="Shopping cart">shopping_cart</span>
+			</div>
     </header>
 <!-- Green box section-->
     <section id="cartSection" class="cart-section is-empty">
@@ -39,7 +41,7 @@
 
 </section>
 
-<section id="orderFormSection" class="order-form-section">
+<section id="orderFormSection" class="order-form-section hidden">
     <h2>Fill in the required fields and submit this form to complete your order</h2>
 
         <form id="checkoutForm">
@@ -104,8 +106,8 @@
                         <div class="payment-header">
                         <label>Credit / Debit Card</label>
                         <div class="card-logos">
-                            <img src="Images/mastercard logo.png" alt="mastercard">
-                            <img src="Images/visa logo.png" alt="visa">
+                            <img src="images/mastercard logo.png" alt="mastercard">
+                            <img src="images/visa logo.png" alt="visa">
                         </div>
                     </div>
                         <input type="text" class="numeric-only" inputmode="numeric" pattern="[0-9]*" maxlength="19" placeholder="0000 0000 0000 0000">
@@ -130,14 +132,14 @@
 
                     <div class="payment-option">
                         <div class="payment-label">
-                            <img src="Images/paypal logo.png" alt="paypal" class="payment-logo">
+                            <img src="images/paypal logo.png" alt="paypal" class="payment-logo">
                         <span>Paypal</span>
                         </div>
                         <input type="radio" name="payment" value="paypal">
                     </div>
                     <div class="payment-option">
                         <div class="payment-label">
-                            <img src="Images/gcash logo.png" alt="gcash" class="payment-logo">
+                            <img src="images/gcash logo.png" alt="gcash" class="payment-logo">
                         <span>Gcash</span>
                         </div>
                         <input type="radio" name="payment" value="gcash">
@@ -156,7 +158,23 @@
         </form>
 </section>
 
-<script src="checkout.js"></script>
+    <footer class="site-footer bg-white">
+        <div class="footer-inner">
+
+            <a class="footer-brand text-reset text-decoration-none text-nowrap" href="index.html">
+                <img class="footer-logo object-fit-contain" src="images/seenag-logo.png" alt="Seenag logo">
+                <span>Seenag</span>
+
+            </a>
+
+            <a class="footer-link text-decoration-none text-dark" href="privacyTerms.html#privacy">Privacy</a>
+            <a class="footer-link text-decoration-none text-dark" href="privacyTerms.html#terms">Terms</a>
+
+        </div>
+
+    </footer>
+
+<script src="js/checkout.js"></script>
 
 </body>
 </html>
