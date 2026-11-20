@@ -25,6 +25,7 @@
 body {
     color: var(--black-color);
     padding-top: 95px;
+    background-color: var(--cream-color);
 }
 
 .hidden {
