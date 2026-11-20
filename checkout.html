@@ -57,12 +57,12 @@
 
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" placeholder="user@gmail.com" required>
+                        <input type="email" id="email" placeholder="user@gmail.com" required>
                     </div>
                 
                     <div class="form-group">
                         <label for="phoneNumber">Phone Number</label>
-                        <input type="tel" id="phone" class="numeric-only" inputmode="numeric" pattern="[0-9]*" maxlength="13" placeholder="0961 000 0000" required>
+                        <input type="tel" id="phone" class="numeric-only" inputmode="numeric" pattern="[0-9]*" maxlength="13" placeholder="0961 000 0000" aria-label="phone" required>
                     </div>
 
                     <div class="form-group">
@@ -125,7 +125,7 @@
                         </div>
                         <div>
                             <label for="expiryDate">CVC</label>
-                            <input type="text" id="cvc" class="numeric-only" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="CVC">
+                            <input type="text" id="cvc" class="numeric-only" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="CVC" aria-label="cvc">
                         </div>
                     </div>
 
