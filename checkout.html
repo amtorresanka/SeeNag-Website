@@ -1,162 +1,204 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Check Out</title>
-    <link rel="stylesheet" href="css/checkout.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <a href="index.html" id="BackBtn" class="back-btn">← Back</a>
-        <h1>Check Out</h1>
-			<div id="cart-icon">
-			<span class="material-symbols-outlined" aria-label="Shopping cart" style="font-size:36px;">shopping_cart</span>
-			</div>
-    </header>
-<!-- Green box section-->
-    <section id="cartSection" class="cart-section is-empty">
-    
-    <div id="emptyState" class="empty-message">
-      Cart is empty.
-    </div>
 
-    <div id="filledState" class="filled-container hidden">
-        <div id="cartItemsContainer"></div>
+let cart = JSON.parse(localStorage.getItem('shopCart')) || [];
 
-        <div class="totals-wrapper">
-            <div class="totals-box">
-                <div class="total-row total-final">
-                    <span>Total</span>
-                    <span id="totalText">₱ 0.00</span>
+const cartSection= document.getElementById('cartSection');
+const emptyState= document.getElementById('emptyState');
+const filledState= document.getElementById('filledState');
+const container= document.getElementById('cartItemsContainer');
+const checkoutForm= document.getElementById('checkoutForm');
+const orderFormSection= document.getElementById('orderFormSection');
+
+function renderCheckout() {
+    if (cart.length==0) {
+    cartSection.classList.add('is-empty');
+    emptyState.classList.remove('hidden');
+    filledState.classList.add('hidden');
+    orderFormSection.classList.add('hidden');
+    }
+    else {
+    cartSection.classList.remove('is-empty');
+    emptyState.classList.add('hidden');
+    filledState.classList.remove('hidden');
+    orderFormSection.classList.remove('hidden');
+    }
+    container.innerHTML = ' ';
+    let total = 0;
+
+const totalText = document.getElementById('totalText');
+
+    cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+
+        container.innerHTML += `
+            <div class="cart-item">
+                ${item.image 
+                    ? `<img src="${item.image}" alt="${item.name}" class="item-img">` 
+                    : `<div class="item-img-placeholder"></div>`
+                }
+                <div class="item-details">
+                    <div class="item-header">
+                        <h3>${item.name}</h3>
+                        <button type="button" class="delete-btn" onclick="removeItem(${index})">Delete</button>
+                    </div>
+                    <p class="item-price">₱ ${item.price.toFixed(2)}</p>
+                
+                    <div class="control-row">
+                        <span class="control-label">Quantity</span>
+                        <div class="quantity-control">
+                            <button type="button" class="qty-btn" onclick="changeQuantity(${index}, -1)" ${item.quantity <= 1 ? 'disabled' : ''}>−</button>
+                            <span class="qty-value">${item.quantity}</span>
+                            <button type="button" class="qty-btn" onclick="changeQuantity(${index}, 1)" ${item.quantity >= 50 ? 'disabled' : ''}>+</button>
+                        </div>
+                    </div>
+
+                    <div class="control-row">
+                        <span class="control-label">Size</span>
+                        <select onchange="updateSize(${index}, this.value)">
+                            ${['XS', 'S', 'M', 'L', 'XL'].map(s => 
+                                `<option value="${s}" ${item.size === s ? 'selected' : ''}>${s}</option>`
+                            ).join('')}
+                        </select>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        `;
+    });
 
-</section>
+    totalText.textContent = `₱ ${total.toFixed(2)}`;
+}
+// Unchecks payment selection for Gcash and Paypal
+document.querySelectorAll('input[type="radio"][name="payment"]').forEach(radio => {
+    radio.addEventListener('click', function () {
+        if (this.dataset.wasChecked === 'true') {
+            this.checked = false;
+            this.dataset.wasChecked = 'false';
+        } else {
+            document.querySelectorAll('input[type="radio"][name="payment"]').forEach(r => {
+                r.dataset.wasChecked = 'false';
+            });
+            this.dataset.wasChecked = 'true';
+        }
+    });
+});
 
-<section id="orderFormSection" class="order-form-section hidden">
-    <h2>Fill in the required fields and submit this form to complete your order</h2>
+function changeQuantity(index, delta) {
+    const newQty = cart[index].quantity + delta;
+    if (newQty >= 1 && newQty <= 50) {
+        cart[index].quantity = newQty;
+        localStorage.setItem('shopCart', JSON.stringify(cart));
+        renderCheckout();
+    }
+}
 
-        <form id="checkoutForm">
-            <div class="form-grid">
-                <!-- Left Column -->
-                <div>
-                    <div class="form-group">
-                        <label for ="firstName">Customer name</label>
-                        <div class="two-col">
-                            <input type="text" id="firstName" placeholder="First name" aria-label="First name" required>
-                            <input type="text" id="lastName" placeholder="Last name" aria-label="Last name" required>
-                        </div>
-                    </div>
+function updateSize(index, newSize) {
+    cart[index].size = newSize;
+    localStorage.setItem('shopCart', JSON.stringify(cart));
+    renderCheckout();
+}
 
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="user@gmail.com" required>
-                    </div>
-                
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" class="numeric-only" inputmode="numeric" pattern="[0-9]*" maxlength="13" placeholder="0961 000 0000" aria-label="phone" required>
-                    </div>
+function removeItem(index) {
+    cart.splice(index, 1);
+    localStorage.setItem('shopCart', JSON.stringify(cart));
+    renderCheckout();
+}
 
-                    <div class="form-group">
-                        <label for="streetAddress">Shipping Address</label>
-                        <input type="text" id="streetAddress" required>
-                        <span class="sub-label">Street Address</span>
-                    </div>
+document.querySelectorAll('numeric-only').forEach(input => {
+    input.addEventListener('input', function () {
+        this.value = this.value.replace(/\D/g, '');
+    });
+});
+// by clicking "back" button, the page will return to the previous page.
+const backBtn = document.getElementById('backBtn');
+backBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    window.location.href = 'index.html';
+  }
+});
 
-                    <div class="form-group">
-                        <input type="text" id="addedAddress" aria-label="Apartment, unit, building, floor, etc.">
-                        <span class="sub-label">Apartment, unit, building, floor, etc.</span>
-                    </div>
+const expiryInput = document.querySelector('.expiry-input');
+if (expiryInput) {
+    expiryInput.addEventListener('input', function () {
+        let digits = this.value.replace(/\D/g, '').substring(0, 4);
+        this.value = digits.length >= 3 
+            ? `${digits.slice(0, 2)} / ${digits.slice(2)}` 
+            : digits;
+    });
+}
 
-                    <div class="form-group two-col">
-                        <div>
-                            <input type="text" id="country" aria-label="Country" required>
-                            <span class="sub-label">Country</span>
-                        </div>
-                        <div>
-                            <input type="text" id="city" aria-label="City" required>
-                            <span class="sub-label">City</span>
-                        </div>
-                    </div>
+if (checkoutForm) {
+    checkoutForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert('Order submitted! Thank you for your purchase.');
+        localStorage.removeItem('myShopCart');
+        cart = [];
+        checkoutForm.reset();
+        renderCheckout();
+    });
 
-                    <div class="form-group two-col">
-                        <div>
-                            <input type="text" id="postalCode" class="numeric-only" inputmode="numeric" pattern="[0-9]*" maxlength="4" aria-label="Postal or Zip Code" required>
-                            <span class="sub-label">Postal / Zip Code</span>
-                        </div>
-                        <div>
-                            <input type="text" id="stateProvince" aria-label="State or Province" required>
-                            <span class="sub-label">State / Province</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Right Column -->
-                <div>
-                    <div class="form-group">
-                        <span><strong>Payment Method</strong></span>
-                        <div class="payment-header">
-                        <label for="cardNumber">Credit / Debit Card</label>
-                        <div class="card-logos">
-                            <img src="images/mastercard logo.png" alt="mastercard">
-                            <img src="images/visa logo.png" alt="visa">
-                        </div>
-                    </div>
-                        <input type="text" id="cardNumber" class="numeric-only" inputmode="numeric" pattern="[0-9]*" maxlength="19" placeholder="0000 0000 0000 0000">
-                    </div>
-                
+// Handle order submission and open pre-filled email client
+if (checkoutForm) {
+    checkoutForm.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-                    <div class="form-group">
-                        <label for="cardName">Name on card</label>
-                        <input type="text" id="cardName">
-                    </div>
+        const storeEmail = 'yourstore@example.com';
 
-                    <div class="form-group two-col">
-                        <div>
-                            <label for="expiryDate">Expiry date</label>
-                            <input type="text" id="expiryDate" class="expiry-input" inputmode="numeric" maxlength="7" placeholder="MM / YY">
-                        </div>
-                        <div>
-                            <label for="cvc">CVC</label>
-                            <input type="text" id="cvc" class="numeric-only" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="CVC" aria-label="cvc">
-                        </div>
-                    </div>
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const street = document.getElementById('streetAddress').value.trim();
+        const apt = document.getElementById('addedAddress').value.trim();
+        const city = document.getElementById('city').value.trim();
+        const state = document.getElementById('stateProvince').value.trim();
+        const postal = document.getElementById('postalCode').value.trim();
+        const country = document.getElementById('country').value.trim();
+        const notes = document.getElementById('specialInstructions').value.trim();
 
-                    <div class="payment-option">
-                        <label for="paypalRadio" class="payment-label">
-                            <img src="images/paypal logo.png" alt="paypal" class="payment-logo">
-                        	<span>Paypal</span>
-						</label>
-                        <input type="radio" id="paypalRadio" name="payment" value="paypal">
-					</div>
-                    <div class="payment-option">
-                        <label for="gcashRadio" class="payment-label">
-                            <img src="images/gcash logo.png" alt="gcash" class="payment-logo">
-                        	<span>Gcash</span>
-						</label>
-                        <input type="radio" id="gcashRadio" name="payment" value="gcash">
-                    </div>
-                    
-                   <div class="form-group instructions-group">
-                <label for="specialInstructions">Special Instructions</label>
-                <textarea id="specialInstructions" rows="5"></textarea>
-            </div>
-        </div>
-	</div>
-            <div class="submit-container">
-                <button type="submit" class="submit-btn">Submit</button>
-            </div>
-        </form>
-</section>
+        const selectedRadio = document.querySelector('input[name="payment"]:checked');
+        const paymentMethod = selectedRadio 
+            ? selectedRadio.value.toUpperCase() 
+            : (document.getElementById('cardNumber').value.trim() ? 'Credit / Debit Card' : 'Not specified');
 
-<script src="js/checkout.js"></script>
+        // Format ordered items from the cart
+        let grandTotal = 0;
+        const itemLines = cart.map((item, i) => {
+            const subtotal = item.price * item.quantity;
+            grandTotal += subtotal;
+            return `${i + 1}. ${item.name} | Size: ${item.size} | Qty: ${item.quantity} | Price: PHP ${item.price.toFixed(2)} (Subtotal: PHP ${subtotal.toFixed(2)})`;
+        }).join('\n');
 
-</body>
-</html>
+        // Build email subject and body
+        const subject = `New T-Shirt Order from ${firstName} ${lastName}`;
+        const body = [
+            ``,
+            `--- ORDER DETAILS ---`,
+            itemLines,
+            ``,
+            `Total Amount: PHP ${grandTotal.toFixed(2)}`,
+            `Payment Method: ${paymentMethod}`,
+            ``,
+            `--- CUSTOMER & SHIPPING INFO ---`,
+            `Name: ${firstName} ${lastName}`,
+            `Email: ${email}`,
+            `Phone: ${phone}`,
+            `Address: ${street}${apt ? ', ' + apt : ''}, ${city}, ${state} ${postal}, ${country}`,
+            notes ? `Special Instructions: ${notes}` : ''
+        ].filter(line => line !== null).join('\n');
+
+        const mailtoLink = `mailto:${storeEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoLink;
+
+        // Clear cart and reset form after email was sent
+        localStorage.removeItem('myShopCart');
+        cart = [];
+        checkoutForm.reset();
+        renderCheckout();
+    });
+
+}
+
+renderCheckout()}
