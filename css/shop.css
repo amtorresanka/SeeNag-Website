@@ -9,6 +9,21 @@ body {
     font-family: "Lora", serif;
 }
 
+.skip-link {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    z-index: 10;
+    padding: 8px 12px;
+    transform: translateY(-150%);
+    background: #fff;
+    color: var(--ink);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
 /* HEADER / NAVBAR */
 header {
   line-height: 1.5;
